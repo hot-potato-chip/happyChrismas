@@ -7,7 +7,7 @@ const ENVELOPE_START_TRANS_RATIO = 0.5
 const ENVELOPE_TRANS_DISTANCE = 10
 
 const PAGE_START_TRANS_RATIO = 0.8
-const PAGE_TRANS_DISTANCE = 15
+const PAGE_TRANS_DISTANCE = 10
 
 let open = false
 const envelope = document.querySelector('#envelope')
