@@ -3,10 +3,13 @@ html{
   box-sizing: border-box;
 }
 
-.envelopeContainer {
+.container {
   width: 100%;
-  height: 600vh;
   margin: auto;
+}
+
+.envelopeContainer {
+  height: 600vh;
   background: fixed url(../img/bg.jpg) center center no-repeat;
 }
 
@@ -93,4 +96,21 @@ html{
   --translateYDistance:0rem;
   transform: translateX(-50%) translateY(var(--translateYDistance)) translateZ(var(--translateZDistance));
   z-index: 2;
+}
+
+.contentContainer {
+  height: 300vh;
+  background: fixed url(../img/bg_color.jpg) center center;
+}
+
+#content {
+  position: sticky;
+  top: calc(50vh - 20vw);
+  width: 50vw;
+  min-width: 20rem;
+  height: 30vw;
+  background-color: wheat;
+  margin: auto;
+  --opacity:0;
+  opacity: var(--opacity);
 }

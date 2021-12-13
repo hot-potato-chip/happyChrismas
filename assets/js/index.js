@@ -1,17 +1,21 @@
 const START_SCROLL_DISTANCE = 0
-let END_SCROLL_DISTANCE = 5 * window.innerHeight
+let END_SCROLL_DISTANCE = 6 * window.innerHeight
 let SCROLL_DISTANCE = END_SCROLL_DISTANCE - START_SCROLL_DISTANCE
 const ROTATE_DEG = 120
 
 const ENVELOPE_START_TRANS_RATIO = 0.5
 const ENVELOPE_TRANS_DISTANCE = 10
 
-const PAGE_START_TRANS_RATIO = 0.8
+const PAGE_START_TRANS_RATIO = 0.7
 const PAGE_TRANS_DISTANCE = 10
 
+let OPACITY_DISTANCE = 2 * window.innerHeight
+
 let open = false
+
 const envelope = document.querySelector('#envelope')
 const page = document.querySelector('#page')
+const content = document.querySelector('#content')
 
 envelope.addEventListener("click", e => {
   open = true
@@ -25,6 +29,7 @@ const zeroToOne = (num) => {
 }
 
 const adjustEnvelope = () => {
+
   if (!open) {
     scrollTo(0, 0)
     return false
@@ -45,9 +50,20 @@ const adjustEnvelope = () => {
   }
 }
 
+const adjustContent = () => {
+  let scrollRatio = Math.min((content.offsetTop - END_SCROLL_DISTANCE) / OPACITY_DISTANCE, 1)
+  console.log(scrollRatio)
+  content.style.setProperty('--opacity',scrollRatio)
+}
+
 window.addEventListener('resize', () => {
-  END_SCROLL_DISTANCE = 5 * window.innerHeight
+  END_SCROLL_DISTANCE = 6 * window.innerHeight
   SCROLL_DISTANCE = END_SCROLL_DISTANCE - START_SCROLL_DISTANCE
+  OPACITY_DISTANCE = 2 * window.innerHeight
   adjustEnvelope()
+  adjustContent()
 })
-document.addEventListener('scroll', adjustEnvelope)
+document.addEventListener('scroll', () => {
+  adjustEnvelope()
+  adjustContent()
+})
