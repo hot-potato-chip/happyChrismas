@@ -1,0 +1,40 @@
+html{
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+.envelopeContainer {
+  width: 100%;
+  height: 500rem;
+  margin: auto;
+  background: fixed url(../img/bg.jpg) center center;
+  transform-style: preserve-3d;
+}
+
+.envelope {
+  position: sticky;
+  top: 10rem;
+  width: 50vw;
+  min-width: 20rem;
+  height: 40rem;
+  background-color: brown;
+  margin: auto;
+  transform-style: preserve-3d;
+  --translateYDistance: 0rem;
+  transform: translateY(var(--translateYDistance));
+  cursor: pointer;
+}
+
+.envelopeTop {
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  border-left:transparent 25vw solid;
+  border-right:transparent 25vw solid;
+  border-top:tomato 15vw solid;
+  --rotatedeg:0deg;
+  transform: translateX(-50%) rotateX(var(--rotatedeg));
+  transform-origin: 50% 0;
+}
