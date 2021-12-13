@@ -5,7 +5,7 @@ html{
 
 .envelopeContainer {
   width: 100%;
-  height: 500rem;
+  height: 600vh;
   margin: auto;
   background: fixed url(../img/bg.jpg) center center no-repeat;
 }
