@@ -7,34 +7,90 @@ html{
   width: 100%;
   height: 500rem;
   margin: auto;
-  background: fixed url(../img/bg.jpg) center center;
-  transform-style: preserve-3d;
+  background: fixed url(../img/bg.jpg) center center no-repeat;
 }
 
-.envelope {
+#envelope {
   position: sticky;
-  top: 10rem;
+  top: calc(50vh - 20vw);
   width: 50vw;
   min-width: 20rem;
-  height: 40rem;
+  height: 30vw;
   background-color: brown;
   margin: auto;
   transform-style: preserve-3d;
   --translateYDistance: 0rem;
   transform: translateY(var(--translateYDistance));
   cursor: pointer;
+  --rotatedeg:0deg;
+  --translateZDistance:0rem;
 }
 
-.envelopeTop {
+.envelopePart {
   width: 0;
   height: 0;
+}
+
+#envelopeTop {
   position: absolute;
   top: 0;
   left: 50%;
   border-left:transparent 25vw solid;
   border-right:transparent 25vw solid;
   border-top:tomato 15vw solid;
-  --rotatedeg:0deg;
   transform: translateX(-50%) rotateX(var(--rotatedeg));
   transform-origin: 50% 0;
+  z-index: 4;
+}
+
+#envelope::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  border-left:transparent 25vw solid;
+  border-right:transparent 25vw solid;
+  border-top:brown 15vw solid;
+  transform: translateX(-50%) rotateX(var(--rotatedeg));
+  transform-origin: 50% 0;
+  z-index: 1;
+}
+
+#envelopeLeft {
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-top: transparent 15vw solid;
+  border-left:pink 25vw solid;
+  border-bottom:pink 15vw solid;
+  border-right: transparent 25vw solid;
+  z-index: 3;
+  transform: translateZ(var(--translateZDistance));
+}
+
+#envelopeRight {
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-top: transparent 15vw solid;
+  border-left:transparent 25vw solid;
+  border-bottom:pink 15vw solid;
+  border-right: pink 25vw solid;
+  z-index: 3;
+  transform: translateZ(var(--translateZDistance));
+}
+
+#page {
+  position: absolute;
+  left: 50%;
+  bottom:0;
+  width: 48vw;
+  height: 28vw;
+  background-color: wheat;
+  --translateYDistance:0rem;
+  transform: translateX(-50%) translateY(var(--translateYDistance)) translateZ(var(--translateZDistance));
+  z-index: 2;
 }
