@@ -13,13 +13,16 @@ html{
   background: fixed url(../img/bg.jpg) center center no-repeat;
 }
 
+.boxShadow {
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+}
+
 #envelope {
   position: sticky;
   top: calc(50vh - 20vw);
   width: 50vw;
   min-width: 20rem;
   height: 30vw;
-  background-color: brown;
   margin: auto;
   transform-style: preserve-3d;
   --translateYDistance: 0rem;
@@ -27,11 +30,37 @@ html{
   cursor: pointer;
   --rotatedeg:0deg;
   --translateZDistance:0rem;
+  transition: all 0.5s, opacity 1s;
+  --opacity:1;
+}
+
+#envelope.big:hover{
+  transform: scale(1.05);
+}
+
+#envelope.big:active {
+  transform: scale(1);
 }
 
 .envelopePart {
   width: 0;
   height: 0;
+  transition: all 0.5s, opacity 1s;
+  opacity: var(--opacity);
+}
+
+#envelope::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50vw;
+  min-width: 20rem;
+  height: 30vw;
+  background-color: brown;
+  z-index: 1;
+  transition: all 0.5s, opacity 1s;
+  opacity: var(--opacity);
 }
 
 #envelopeTop {
@@ -44,6 +73,8 @@ html{
   transform: translateX(-50%) rotateX(var(--rotatedeg));
   transform-origin: 50% 0;
   z-index: 4;
+  transition: all 0.5s, opacity 1s;
+  opacity: var(--opacity);
 }
 
 #envelope::after {
@@ -60,6 +91,8 @@ html{
   transform: translateX(-50%) rotateX(var(--rotatedeg));
   transform-origin: 50% 0;
   z-index: 1;
+  opacity: var(--opacity);
+  transition: all 0.5s, opacity 1s;
 }
 
 #envelopeLeft {
@@ -71,7 +104,7 @@ html{
   border-bottom:pink 15vw solid;
   border-right: transparent 25vw solid;
   z-index: 3;
-  transform: translateZ(var(--translateZDistance));
+  transform: translateZ(100rem);
 }
 
 #envelopeRight {
@@ -83,7 +116,7 @@ html{
   border-bottom:pink 15vw solid;
   border-right: pink 25vw solid;
   z-index: 3;
-  transform: translateZ(var(--translateZDistance));
+  transform: translateZ(100rem);
 }
 
 #page {
@@ -96,11 +129,12 @@ html{
   --translateYDistance:0rem;
   transform: translateX(-50%) translateY(var(--translateYDistance)) translateZ(var(--translateZDistance));
   z-index: 2;
+  transition: all 0.5s, opacity 1s;
 }
 
 .contentContainer {
   height: 300vh;
-  background: fixed url(../img/bg_color.jpg) center center;
+  background: fixed url(../img/bg_color.jpg) center center no-repeat;
 }
 
 #content {
