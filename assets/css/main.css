@@ -1,5 +1,5 @@
 html{
-  font-size: 62.5%;
+  font-size: 10px;
   box-sizing: border-box;
   /* cursor: url(../img/cursor.png),auto; */
   min-width: 100rem;
@@ -274,7 +274,7 @@ html{
   background-color: rgb(56,96,209);
 }
 
-@media screen and ( min-width:100rem ) {
+@media screen and (max-width:1000px ) {
   #clickHint {
     top: calc(50vh - 5rem);
     left: 50rem;
@@ -302,7 +302,7 @@ html{
   #envelopeTop::after {
     border-left:transparent 25rem solid;
     border-right:transparent 25rem solid;
-    border-top:tomato 15rem solid;
+    border-top:brown 15rem solid;
   }
 
   #envelopeLeft {
