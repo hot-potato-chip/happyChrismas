@@ -29,7 +29,7 @@ html{
   left: 50vw;
   width: 10rem;
   height: 10rem;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateZ(110rem);
   opacity: 0;
   background: url(../img/click_hint.png) center center no-repeat;
   background-size: 200%;
