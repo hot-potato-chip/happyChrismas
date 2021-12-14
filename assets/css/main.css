@@ -2,10 +2,12 @@ html{
   font-size: 62.5%;
   box-sizing: border-box;
   cursor: url(../img/cursor.png),auto;
+  min-width: 102.4rem;
 }
 
 .container {
   width: 100%;
+  min-width: 102.4rem;
   margin: auto;
   position: relative;
 }
