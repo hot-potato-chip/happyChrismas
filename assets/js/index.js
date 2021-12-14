@@ -27,6 +27,7 @@ const content = document.querySelector('#content')
 window.onload = () => {
   envelopeContainer.style.setProperty('background-size','100%')
   envelope.style.setProperty('--translateYDistance','0rem')
+  envelope.scrollIntoView()
   clickHint.style.setProperty('opacity','1')
   clickHint.style.setProperty('animation','upDown infinite 1s alternate')
 
@@ -44,6 +45,14 @@ window.onload = () => {
       galleryImg.style.backgroundImage = `url(${e.target.dataset.img})`
     }
   })
+
+  const toggleGalleryImgSize = e => {
+    galleryImg.onmouseout =() => {
+      galleryImg.classList.toggle('bgCover')
+      galleryImg.onmouseout = null
+    }
+  }
+  galleryImg.addEventListener('click', toggleGalleryImgSize)
 }
 
 envelope.addEventListener("click", e => {
@@ -107,6 +116,7 @@ const adjustContent = () => {
 }
 
 window.addEventListener('resize', () => {
+  envelope.scrollIntoView()
   END_SCROLL_DISTANCE = END_SCROLL_DISTANCE_NUM * window.innerHeight
   SCROLL_DISTANCE = END_SCROLL_DISTANCE - START_SCROLL_DISTANCE
   OPACITY_DISTANCE = OPACITY_DISTANCE_NUM * window.innerHeight
