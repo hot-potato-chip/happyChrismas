@@ -62,7 +62,7 @@ const zeroToOne = (num) => {
 
 const adjustEnvelope = () => {
   if (!open) {
-    scrollTo(0, 0)
+    scrollY(0)
     return false
   }
   let scrollRatio = Math.min((envelope.offsetTop - START_SCROLL_DISTANCE) / SCROLL_DISTANCE, 1)
