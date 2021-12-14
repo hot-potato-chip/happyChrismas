@@ -12,19 +12,44 @@ const PAGE_TRANS_DISTANCE = 10
 
 const ENVELOPE_DISAPPEAR_RATIO = 0.9
 
-const OPACITY_DISTANCE_NUM = 2
+const OPACITY_DISTANCE_NUM = 1
 let OPACITY_DISTANCE = OPACITY_DISTANCE_NUM * window.innerHeight
 
 let open = false
 const OPENED_DEG = 30
 
+const envelopeContainer = document.querySelector('.envelopeContainer')
 const envelope = document.querySelector('#envelope')
+const clickHint = document.querySelector('#clickHint')
 const page = document.querySelector('#page')
 const content = document.querySelector('#content')
 
+window.onload = () => {
+  envelopeContainer.style.setProperty('background-size','100%')
+  envelope.style.setProperty('--translateYDistance','0rem')
+  clickHint.style.setProperty('opacity','1')
+  clickHint.style.setProperty('animation','upDown infinite 1s alternate')
+
+  const lis = document.querySelectorAll('#galleryList li')
+  for (let li of lis) {
+    li.style.backgroundImage= `url(${li.dataset.img})`
+  }
+
+  const ul = document.querySelector('#galleryList')
+  const galleryImg = document.querySelector('#galleryImg')
+  ul.addEventListener('click',e => {
+    if (e.target.tagName === 'LI') {
+      lis.forEach(li => li.classList.remove('active'))
+      e.target.classList.add('active')
+      galleryImg.style.backgroundImage = `url(${e.target.dataset.img})`
+    }
+  })
+}
+
 envelope.addEventListener("click", e => {
   open = true
-  envelope.style.setProperty('cursor', 'initial')
+  clickHint.style.setProperty('opacity','0')
+  envelopeContainer.style.setProperty('background-size','120%')
   envelope.style.setProperty('--rotatedeg',OPENED_DEG+'deg')
   envelope.classList.remove('big')
 })
@@ -75,8 +100,9 @@ const adjustEnvelope = () => {
 }
 
 const adjustContent = () => {
-  let scrollRatio = Math.min((content.offsetTop - END_SCROLL_DISTANCE) / OPACITY_DISTANCE, 1)
+  let scrollRatio = Math.min(content.offsetTop/ OPACITY_DISTANCE, 1)
   content.style.setProperty('--opacity',scrollRatio)
+  content.style.top = `calc(50vh - ${Math.ceil(scrollRatio * 20)}vw)`
 }
 
 window.addEventListener('resize', () => {

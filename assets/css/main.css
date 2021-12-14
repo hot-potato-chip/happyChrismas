@@ -1,20 +1,46 @@
 html{
   font-size: 62.5%;
   box-sizing: border-box;
+  cursor: url(../img/cursor.png),auto;
 }
 
 .container {
   width: 100%;
   margin: auto;
+  position: relative;
 }
 
 .envelopeContainer {
   height: 600vh;
   background: fixed url(../img/bg.jpg) center center no-repeat;
+  background-size: 150% ;
+  transition: all 0.5s;
 }
 
 .boxShadow {
   box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+}
+
+#clickHint {
+  position: absolute;
+  top: calc(50vh - 5vw);
+  left: 50vw;
+  width: 10rem;
+  height: 10rem;
+  transform: translateX(-50%);
+  opacity: 0;
+  background: url(../img/click_hint.png) center center no-repeat;
+  background-size: 200%;
+  transition: all 0.5s;
+}
+
+@keyframes upDown {
+  0% {
+    top: calc(50vh - 5vw)
+  }
+  100% {
+    top: 50vh
+  }
 }
 
 #envelope {
@@ -25,9 +51,8 @@ html{
   height: 30vw;
   margin: auto;
   transform-style: preserve-3d;
-  --translateYDistance: 0rem;
+  --translateYDistance: 10rem;
   transform: translateY(var(--translateYDistance));
-  cursor: pointer;
   --rotatedeg:0deg;
   --translateZDistance:0rem;
   transition: all 0.5s, opacity 1s;
@@ -135,6 +160,7 @@ html{
 .contentContainer {
   height: 300vh;
   background: fixed url(../img/bg_color.jpg) center center no-repeat;
+  background-size: 120%;
 }
 
 #content {
@@ -147,4 +173,92 @@ html{
   margin: auto;
   --opacity:0;
   opacity: var(--opacity);
+}
+
+#content::after {
+  content: '';
+  width: 15rem;
+  height: 15rem;
+  position: absolute;
+  right: -3rem;
+  bottom: 0;
+  background:url(../img/chocolate.png) center center no-repeat;
+  background-size: 150%;
+  opacity: var(--opacity);
+}
+
+.galleryContainer {
+  height: 100vh;
+  background: url(../img/gallery_bg.png) left top;
+  cursor: auto;
+}
+
+#gallery {
+  position: absolute;
+  top: 5vh;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 60vw;
+  height: 80vh;
+  transform: translateX(-50%);
+  background-color: wheat;
+}
+
+#galleryList {
+  display: flex;
+  flex-direction: row;
+  width: 50vw;
+  justify-content: space-between;
+}
+
+#galleryList li {
+  height: 10vw;
+  min-height: 10rem;
+  max-height: 20vh;
+  width: 10vw;
+  min-width: 10rem;
+  max-width: 20vh;
+  border: 4px white solid;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+#galleryList li:hover {
+  transform: scale(1.1);
+  border-color: rgb(56,96,209);
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+}
+
+#galleryList li.active {
+  border-color: rgb(56,96,209);
+}
+
+#galleryImg{
+  width: 50vw;
+  height: 50vh;
+  background-color: #fff;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url(../img/merrychristmas.jpg);
+  transition: all 1s;
+}
+
+#galleryImg:hover {
+  background-size: cover;
+}
+
+.bottombar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 10vh;
+  background-color: rgb(56,96,209);
 }
