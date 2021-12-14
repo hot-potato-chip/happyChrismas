@@ -42,17 +42,19 @@ const adjustEnvelope = () => {
   let scrollRatio = Math.min((envelope.offsetTop - START_SCROLL_DISTANCE) / SCROLL_DISTANCE, 1)
   let rotatedeg = Math.ceil(scrollRatio * ROTATE_DEG) + OPENED_DEG
   envelope.style.setProperty('--rotatedeg', rotatedeg + 'deg')
+  if (rotatedeg > 90) {
+    envelope.style.setProperty('--translateZDistance', '100rem')
+  } else {
+    envelope.style.setProperty('--translateZDistance', '0rem')
+  }
   if (scrollRatio >= ENVELOPE_START_TRANS_RATIO) {
     envelope.style.setProperty('--translateYDistance',
     zeroToOne((scrollRatio - ENVELOPE_START_TRANS_RATIO) / (1 - ENVELOPE_START_TRANS_RATIO)) * ENVELOPE_TRANS_DISTANCE + 'rem')
   }
   if (scrollRatio >= PAGE_START_TRANS_RATIO) {
-    envelope.style.setProperty('--translateZDistance', '100rem')
     page.style.setProperty('--translateYDistance',
     -zeroToOne((scrollRatio - PAGE_START_TRANS_RATIO) / (1 - PAGE_START_TRANS_RATIO)) * PAGE_TRANS_DISTANCE + 'rem')
-  } else {
-    envelope.style.setProperty('--translateZDistance', '0rem')
-  }
+  } 
   if (scrollRatio >= ENVELOPE_DISAPPEAR_RATIO) {
     let opacity = 1 - (scrollRatio - ENVELOPE_DISAPPEAR_RATIO)/(1 - ENVELOPE_DISAPPEAR_RATIO)
     envelope.style.setProperty('--opacity',opacity)
