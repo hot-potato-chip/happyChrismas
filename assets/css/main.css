@@ -2,12 +2,12 @@ html{
   font-size: 62.5%;
   box-sizing: border-box;
   cursor: url(../img/cursor.png),auto;
-  min-width: 102.4rem;
+  min-width: 100rem;
 }
 
 .container {
   width: 100%;
-  min-width: 102.4rem;
+  min-width: 100rem;
   margin: auto;
   position: relative;
 }
@@ -49,8 +49,9 @@ html{
   position: sticky;
   top: calc(50vh - 20vw);
   width: 50vw;
-  min-width: 20rem;
+  min-width: 50rem;
   height: 30vw;
+  min-height: 30rem;
   margin: auto;
   transform-style: preserve-3d;
   --translateYDistance: 10rem;
@@ -82,8 +83,9 @@ html{
   left: 0;
   top: 0;
   width: 50vw;
-  min-width: 20rem;
+  min-width: 50rem;
   height: 30vw;
+  min-height: 30rem;
   background-color: brown;
   z-index: 1;
   transition: all 0.5s, opacity 1s;
@@ -151,7 +153,9 @@ html{
   left: 50%;
   bottom:0;
   width: 48vw;
+  min-width: 48rem;
   height: 28vw;
+  min-height: 28rem;
   background-color: wheat;
   --translateYDistance:0rem;
   transform: translateX(-50%) translateY(var(--translateYDistance)) translateZ(var(--translateZDistance));
@@ -169,8 +173,9 @@ html{
   position: sticky;
   top: calc(50vh - 20vw);
   width: 50vw;
-  min-width: 20rem;
+  min-width: 50rem;
   height: 30vw;
+  min-height: 30rem;
   background-color: wheat;
   margin: auto;
   --opacity:0;
@@ -204,6 +209,7 @@ html{
   align-items: center;
   justify-content: space-around;
   width: 60vw;
+  min-width: 60rem;
   height: 80vh;
   transform: translateX(-50%);
   background-color: wheat;
@@ -213,6 +219,7 @@ html{
   display: flex;
   flex-direction: row;
   width: 50vw;
+  min-width: 50rem;
   justify-content: space-between;
 }
 
@@ -243,6 +250,7 @@ html{
 
 #galleryImg{
   width: 50vw;
+  min-width: 50rem;
   height: 50vh;
   background-color: #fff;
   background-position: center center;
@@ -263,4 +271,54 @@ html{
   width: 100%;
   height: 10vh;
   background-color: rgb(56,96,209);
+}
+
+@media screen and (max-width:100rem) {
+  #clickHint {
+    top: calc(50vh - 5rem);
+    left: 50rem;
+  }
+
+  @keyframes upDown {
+    0% {
+      top: calc(50vh - 5rem)
+    }
+    100% {
+      top: 50vh
+    }
+  }
+
+  #envelope {
+    top: calc(50vh - 20rem);
+  }
+
+  #envelopeTop {
+    border-left:transparent 25rem solid;
+    border-right:transparent 25rem solid;
+    border-top:tomato 15rem solid;
+  }
+
+  #envelopeTop::after {
+    border-left:transparent 25rem solid;
+    border-right:transparent 25rem solid;
+    border-top:tomato 15rem solid;
+  }
+
+  #envelopeLeft {
+    border-top: transparent 15rem solid;
+    border-left:pink 25rem solid;
+    border-bottom:pink 15rem solid;
+    border-right: transparent 25rem solid;
+  }
+
+  #envelopeRight {
+    border-top: transparent 15rem solid;
+    border-left:transparent 25rem solid;
+    border-bottom:pink 15rem solid;
+    border-right: pink 25rem solid;
+  }
+
+  #content {
+    top: calc(50vh - 20rem)
+  }
 }
