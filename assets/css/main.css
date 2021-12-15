@@ -15,8 +15,19 @@ html{
 .envelopeContainer {
   height: 600vh;
   background: fixed url(../img/bg.jpg) center center no-repeat;
-  background-size: 150% ;
+  background-size: cover ;
   transition: all 0.5s;
+}
+
+.envelopeContainer::before {
+  background: url(../img/bg.jpg) center center cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: '';
+  z-index: -1;
 }
 
 .boxShadow {
@@ -171,7 +182,18 @@ html{
 .contentContainer {
   height: 300vh;
   background: fixed url(../img/bg_color.jpg) center center no-repeat;
-  background-size: 120%;
+  background-size: cover;
+}
+
+.contentContainer::before {
+  background: url(../img/bg_color.jpg) center center cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: '';
+  z-index: -1;
 }
 
 #content {
@@ -182,9 +204,18 @@ html{
   height: 30vw;
   min-height: 30rem;
   background-color: wheat;
+  background-image: url(../img/content.png);
+  background-size: contain;
+  background-position: left top;
+  background-repeat: no-repeat;
   margin: auto;
   --opacity:0;
   opacity: var(--opacity);
+  --rotatedeg:0deg;
+  --translateYDistance: 0vh;
+  transform: rotate(var(--rotatedeg)) translateY(var(--translateYDistance));
+  transform-origin: 50% 100%;
+  transition: all 0.5s;
 }
 
 #content::after {
@@ -197,6 +228,7 @@ html{
   background:url(../img/chocolate.png) center center no-repeat;
   background-size: 150%;
   opacity: var(--opacity);
+  transition: all 0.5s;
 }
 
 .galleryContainer {

@@ -25,7 +25,6 @@ const page = document.querySelector('#page')
 const content = document.querySelector('#content')
 
 window.onload = () => {
-  envelopeContainer.style.setProperty('background-size','100%')
   envelope.style.setProperty('--translateYDistance','0rem')
   envelope.scrollIntoView()
   clickHint.style.setProperty('opacity','1')
@@ -58,7 +57,6 @@ window.onload = () => {
 envelope.addEventListener("click", e => {
   open = true
   clickHint.style.setProperty('opacity','0')
-  envelopeContainer.style.setProperty('background-size','120%')
   envelope.style.setProperty('--rotatedeg',OPENED_DEG+'deg')
   envelope.classList.remove('big')
 })
@@ -112,6 +110,8 @@ const adjustEnvelope = () => {
 const adjustContent = () => {
   let scrollRatio = Math.min(content.offsetTop/ OPACITY_DISTANCE, 1)
   content.style.setProperty('--opacity',scrollRatio)
+  content.style.setProperty('--rotatedeg',scrollRatio * -10 + 'deg')
+  content.style.setProperty('--translateYDistance',scrollRatio * 10 + 'vh')
   content.style.top = `calc(50vh - ${Math.ceil(scrollRatio * 20)}vw)`
 }
 
