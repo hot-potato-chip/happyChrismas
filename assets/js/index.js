@@ -18,48 +18,57 @@ let OPACITY_DISTANCE = OPACITY_DISTANCE_NUM * window.innerHeight
 let open = false
 const OPENED_DEG = 30
 
+const ANIMAL_NUM = 17
+
 const envelopeContainer = document.querySelector('.envelopeContainer')
 const envelope = document.querySelector('#envelope')
 const clickHint = document.querySelector('#clickHint')
 const page = document.querySelector('#page')
 const content = document.querySelector('#content')
+const lis = document.querySelectorAll('#galleryList li')
+const ul = document.querySelector('#galleryList')
+const galleryImg = document.querySelector('#galleryImg')
+const animal = document.querySelector('#animal')
 
 window.onload = () => {
+  clickHint.style.backgroundImage = 'url(./assets/img/click_hint_2.png)'
   envelope.style.setProperty('--translateYDistance','0rem')
   envelope.scrollIntoView()
   clickHint.style.setProperty('opacity','1')
   clickHint.style.setProperty('animation','upDown infinite 1s alternate')
 
-  const lis = document.querySelectorAll('#galleryList li')
-  for (let li of lis) {
-    li.style.backgroundImage= `url(${li.dataset.img})`
-  }
-
-  const ul = document.querySelector('#galleryList')
-  const galleryImg = document.querySelector('#galleryImg')
-  ul.addEventListener('click',e => {
-    if (e.target.tagName === 'LI') {
-      lis.forEach(li => li.classList.remove('active'))
-      e.target.classList.add('active')
-      galleryImg.style.backgroundImage = `url(${e.target.dataset.img})`
-    }
+  envelope.addEventListener("click", e => {
+    open = true
+    clickHint.style.setProperty('opacity','0')
+    envelope.style.setProperty('--rotatedeg',OPENED_DEG+'deg')
+    envelope.classList.remove('big')
   })
 
-  const toggleGalleryImgSize = e => {
-    galleryImg.onmouseout =() => {
-      galleryImg.classList.toggle('bgCover')
-      galleryImg.onmouseout = null
-    }
-  }
-  galleryImg.addEventListener('click', toggleGalleryImgSize)
+  setInterval(() => {
+    let num = Math.floor(Math.random() * ANIMAL_NUM) + 1
+    animal.src = `./assets/img/animal_${num}.png`
+  },1000)
 }
 
-envelope.addEventListener("click", e => {
-  open = true
-  clickHint.style.setProperty('opacity','0')
-  envelope.style.setProperty('--rotatedeg',OPENED_DEG+'deg')
-  envelope.classList.remove('big')
+for (let li of lis) {
+  li.style.backgroundImage= `url(${li.dataset.img})`
+}
+
+ul.addEventListener('click',e => {
+  if (e.target.tagName === 'LI') {
+    lis.forEach(li => li.classList.remove('active'))
+    e.target.classList.add('active')
+    galleryImg.style.backgroundImage = `url(${e.target.dataset.img})`
+  }
 })
+
+const toggleGalleryImgSize = e => {
+  galleryImg.onmouseout =() => {
+    galleryImg.classList.toggle('bgCover')
+    galleryImg.onmouseout = null
+  }
+}
+galleryImg.addEventListener('click', toggleGalleryImgSize)
 
 const zeroToOne = (num) => {
   if (num < 0) return 0
