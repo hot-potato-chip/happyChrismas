@@ -111,8 +111,7 @@ const adjustContent = () => {
   let scrollRatio = Math.min(content.offsetTop/ OPACITY_DISTANCE, 1)
   content.style.setProperty('--opacity',scrollRatio)
   content.style.setProperty('--rotatedeg',scrollRatio * -10 + 'deg')
-  content.style.setProperty('--translateYDistance',scrollRatio * 10 + 'vh')
-  content.style.top = `calc(50vh - ${Math.ceil(scrollRatio * 20)}vw)`
+  content.style.setProperty('--translateYDistance',scrollRatio * 6 + 'vh')
 }
 
 window.addEventListener('resize', () => {
