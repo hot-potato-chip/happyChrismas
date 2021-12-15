@@ -204,10 +204,10 @@ html{
   height: 30vw;
   min-height: 30rem;
   background-color: wheat;
-  background-image: url(../img/content.png);
-  background-size: contain;
-  background-position: left top;
-  background-repeat: no-repeat;
+  background-image: url(../img/content.png),url(../img/limbo.jpg);
+  background-size: contain,10vw 5vw;
+  background-position: left top,right 10px top 10px;
+  background-repeat: no-repeat,no-repeat;
   margin: auto;
   --opacity:0;
   opacity: var(--opacity);
@@ -373,5 +373,9 @@ html{
 
   #page {
     background-size: 10rem 5rem,contain;
+  }
+
+  #content {
+    background-size: contain,10rem 5rem;
   }
 }
