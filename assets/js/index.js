@@ -31,12 +31,9 @@ const galleryImg = document.querySelector('#galleryImg')
 const animal = document.querySelector('#animal')
 
 window.onload = () => {
-  clickHint.innerHTML = ''
   clickHint.style.backgroundImage = 'url(./assets/img/click_hint_2.png)'
   envelope.style.setProperty('--translateYDistance','0rem')
   envelope.scrollIntoView()
-  clickHint.style.setProperty('opacity','1')
-  clickHint.style.setProperty('animation','upDown infinite 1s alternate')
 
   envelope.addEventListener("click", e => {
     open = true
@@ -50,6 +47,9 @@ window.onload = () => {
     animal.src = `./assets/img/animal_${num}.png`
   },1000)
 }
+
+clickHint.style.setProperty('opacity','1')
+clickHint.style.setProperty('animation','upDown infinite 1s alternate')
 
 for (let li of lis) {
   li.style.backgroundImage= `url(${li.dataset.img})`

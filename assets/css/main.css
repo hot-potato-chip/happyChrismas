@@ -40,10 +40,6 @@ html{
   left: 50%;
   width: 10rem;
   height: 10rem;
-  line-height: 10rem;
-  color: white;
-  font-size: 2rem;
-  text-align: center;
   transform: translateX(-50%) translateZ(110rem);
   opacity: 0;
   background-image: url(../img/loading.png);
