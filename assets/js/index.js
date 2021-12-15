@@ -31,6 +31,7 @@ const galleryImg = document.querySelector('#galleryImg')
 const animal = document.querySelector('#animal')
 
 window.onload = () => {
+  clickHint.innerHTML = ''
   clickHint.style.backgroundImage = 'url(./assets/img/click_hint_2.png)'
   envelope.style.setProperty('--translateYDistance','0rem')
   envelope.scrollIntoView()
