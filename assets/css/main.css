@@ -42,7 +42,7 @@ html{
   height: 10rem;
   transform: translateX(-50%) translateZ(110rem);
   opacity: 0;
-  background: url(../img/click_hint.png) center center no-repeat;
+  background: url(../img/click_hint.png) 43% center no-repeat;
   background-size: 200%;
   transition: all 0.5s;
   z-index: 6;
