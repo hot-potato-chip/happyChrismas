@@ -405,4 +405,16 @@ html{
   #content {
     background-size: contain,10rem;
   }
+
+  #tree {
+    left: 5rem;
+  }
+
+  #konglong {
+    left: 12rem;
+  }
+
+  #animal {
+    right: 5rem;
+  }
 }
