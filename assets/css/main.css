@@ -350,6 +350,29 @@ html{
   transition:all 0.5s;
 }
 
+#musicControl {
+  position: fixed;
+  right: 2rem;
+  top: 3rem;
+  width: 8rem;
+  height: 8rem;
+  background-image: url(../img/music.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: all 0.5s;
+  cursor: pointer;
+  z-index: 10;
+}
+
+#musicControl:hover {
+  transform: scale(1.1);
+}
+
+#musicControl:active {
+  transform: translate(2px,2px);
+}
+
 @media screen and (max-width:999px ) {
   #clickHint {
     top: 10rem;

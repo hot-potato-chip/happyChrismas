@@ -29,6 +29,8 @@ const lis = document.querySelectorAll('#galleryList li')
 const ul = document.querySelector('#galleryList')
 const galleryImg = document.querySelector('#galleryImg')
 const animal = document.querySelector('#animal')
+const audio = document.querySelector('audio')
+const musicControl = document.querySelector('#musicControl')
 
 window.onload = () => {
   clickHint.style.backgroundImage = 'url(./assets/img/click_hint_2.png)'
@@ -37,9 +39,18 @@ window.onload = () => {
 
   envelope.addEventListener("click", e => {
     open = true
+    audio.play()
     clickHint.style.setProperty('opacity','0')
     envelope.style.setProperty('--rotatedeg',OPENED_DEG+'deg')
     envelope.classList.remove('big')
+  })
+
+  musicControl.addEventListener('click',e => {
+    if(audio.paused) {
+      audio.play()
+    } else {
+      audio.pause()
+    }
   })
 
   setInterval(() => {
