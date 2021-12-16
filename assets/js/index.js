@@ -33,6 +33,7 @@ const animal = document.querySelector('#animal')
 window.onload = () => {
   clickHint.style.backgroundImage = 'url(./assets/img/click_hint_2.png)'
   envelope.style.setProperty('--translateYDistance','0rem')
+  envelope.scrollIntoView()
 
   envelope.addEventListener("click", e => {
     open = true
