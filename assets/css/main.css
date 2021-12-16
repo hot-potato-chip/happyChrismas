@@ -206,7 +206,7 @@ html{
   height: 30vw;
   min-height: 30rem;
   background-color: wheat;
-  background-image: url(../img/content.png),url(../img/cute_dog_head.png);
+  background-image: url(../img/letter.png),url(../img/cute_dog_head.png);
   background-size: contain,10vw;
   background-position: left top,right 10px top 10px;
   background-repeat: no-repeat,no-repeat;
